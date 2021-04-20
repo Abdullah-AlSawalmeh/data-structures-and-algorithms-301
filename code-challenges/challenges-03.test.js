@@ -129,9 +129,6 @@ const alphabetizeBetter = (arr) => {
     // if (nameA === nameB) {
     //   return 0;
     // }
-
-    // names must be equal
-    // return 0;
   });
   return arr;
 };
@@ -201,6 +198,20 @@ const people = [
 
 const sortPeople = (arr) => {
   // Solution code here...
+  arr.sort((a, b) => {
+    let nameA = a.lastName.toUpperCase(); // ignore upper and lowercase
+    let nameB = b.lastName.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    // if (nameA === nameB) {
+    //   return 0;
+    // }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -215,6 +226,32 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
+  arr.sort((a, b) => {
+    let nameA = a.lastName.toUpperCase(); // ignore upper and lowercase
+    let nameB = b.lastName.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    if (nameA === nameB) {
+      let nameA = a.firstName.toUpperCase(); // ignore upper and lowercase
+      let nameB = b.firstName.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      if (nameA === nameB) {
+        let nameA = a.age; // ignore upper and lowercase
+        let nameB = b.age; // ignore upper and lowercase
+        return nameA - nameB;
+      }
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -241,6 +278,19 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
+  let x = {
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Friday: 4,
+  };
+  arr.sort((a, b) => {
+    let dayA = a.dayOfWeek;
+    let dayB = b.dayOfWeek;
+    if (x[dayA] < x[dayB]) return -1;
+    if (x[dayA] > x[dayB]) return 1;
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -255,6 +305,25 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
+  let x = {
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Friday: 4,
+  };
+  arr.sort((a, b) => {
+    let dayA = a.dayOfWeek;
+    let dayB = b.dayOfWeek;
+    if (x[dayA] < x[dayB]) return -1;
+    if (x[dayA] > x[dayB]) return 1;
+    if (x[dayA] === x[dayB]) {
+      let dayA = Number(a.end) - Number(a.start);
+      let dayB = Number(b.end) - Number(b.start);
+      if (dayA < dayB) return -1;
+      if (dayA > dayB) return 1;
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
