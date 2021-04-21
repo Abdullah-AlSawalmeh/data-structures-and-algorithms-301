@@ -67,7 +67,7 @@ CHALLENGE 5
 
 Write a function named isCapitalized that takes in a string. This function should use a regular expression pattern to match all words that begin with a capital letter. It should only match words, not punctuation.
 
-Return an array containing all the matches.
+Return an array containing all the matches.d
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
