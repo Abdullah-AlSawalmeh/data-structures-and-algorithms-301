@@ -237,6 +237,17 @@ removeLastCharacters('Gregor', 9) returns ''
 
 const removeLastCharacters = (str, numberOfCharacters) => {
   // Solution code here...
+  if (numberOfCharacters > str.length) {
+    return "";
+  } else if (numberOfCharacters < 0) {
+    return str;
+  } else {
+    let x = str.split("");
+    console.log(x);
+    x.splice(-numberOfCharacters);
+    let y = x.join("");
+    return y;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -248,6 +259,11 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 const totalSumCSV = (str) => {
   let total = 0;
   // Solution code here...
+  let y = str.split(",");
+
+  for (let i = 0; i < y.length; i++) {
+    total = total + Number(y[i]);
+  }
   return total;
 };
 
@@ -261,6 +277,17 @@ For example, removeVowels('gregor') returns 'grgr'.
 
 const removeVowels = (str) => {
   // Solution code here...
+  let vowels = ["a", "e", "i", "o", "u"];
+  let y = str.split("");
+  let yLength = y.length;
+  for (let i = 0; i < yLength; i++) {
+    if (vowels.includes(y[i])) {
+      y.splice(i, 1);
+      i = i - 1;
+    }
+  }
+  let j = y.join("");
+  return j;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -275,6 +302,22 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 
 const extractVowels = (str) => {
   // Solution code here...
+  let vowels = ["a", "e", "i", "o", "u"];
+  let vowelsRemoved = [];
+  let y = str.split("");
+  let yLength = y.length;
+  for (let i = 0; i < yLength; i++) {
+    if (vowels.includes(y[i])) {
+      vowelsRemoved.push(y[i]);
+      y.splice(i, 1);
+      i = i - 1;
+    }
+  }
+
+  vowelsRemoved.sort();
+  let vj = vowelsRemoved.join("");
+  let j = y.join("");
+  return [j, vj];
 };
 
 /* ------------------------------------------------------------------------------------------------
