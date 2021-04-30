@@ -266,20 +266,21 @@ const snorlaxData = {
   stats: [
     {
       stat: {
-        url: "https://pokeapi.co/api/v2/stat/6/",
-        name: "speed",
-      },
-      effort: 5,
-      baseStat: 30,
-    },
-    {
-      stat: {
         url: "https://pokeapi.co/api/v2/stat/5/",
         name: "special-defense",
       },
       effort: 2,
       baseStat: 110,
     },
+    {
+      stat: {
+        url: "https://pokeapi.co/api/v2/stat/6/",
+        name: "speed",
+      },
+      effort: 5,
+      baseStat: 30,
+    },
+
     {
       stat: {
         url: "https://pokeapi.co/api/v2/stat/4/",
